@@ -1,0 +1,44 @@
+Test name                                ,#,Average,First ,Max   ,Min   ,Std.Dev,Comment        
+Big int custom HT: 1 Adding items        ,5,  0.371, 0.468, 0.468, 0.343,  0.055,               
+Big int custom HT: 2 Running queries     ,5,  0.091, 0.094, 0.094, 0.078,  0.007,50% misses     
+Big int custom HT: 3 Removing items      ,5,  0.125, 0.124, 0.125, 0.124,  0.000,5000000 removed
+Big int hashtable: 1 Adding items        ,5,  4.040, 4.025, 4.056, 4.025,  0.016,               
+Big int hashtable: 2 Running queries     ,5,  1.120, 1.123, 1.123, 1.107,  0.007,50% misses     
+Big int hashtable: 3 Removing items      ,5,  3.073, 3.058, 3.120, 3.058,  0.027,5000000 removed
+Big int sorted map: 1 Adding items       ,5,  2.976, 2.996, 2.996, 2.964,  0.013,               
+Big int sorted map: 2 Running queries    ,5,  0.836, 0.842, 0.858, 0.811,  0.018,50% misses     
+Big int sorted map: 3 Removing items     ,5,  2.081, 2.075, 2.091, 2.075,  0.008,5000000 removed
+Big string custom HT: 0 Ints to strings  ,5,  1.123, 1.123, 1.124, 1.123,  0.000,               
+Big string custom HT: 1 Adding/setting   ,5,  6.755, 7.879, 7.879, 6.458,  0.629,               
+Big string custom HT: 2 Running queries  ,5,  3.026, 3.010, 3.042, 3.010,  0.016,50% misses     
+Big string custom HT: 3 Removing items   ,5,  4.646, 4.587, 4.851, 4.571,  0.116,5000000 removed
+Big string hashtable: 0 Ints to strings  ,5,  1.123, 1.138, 1.138, 1.108,  0.011,               
+Big string hashtable: 1 Adding/setting   ,5, 11.535,11.576,11.638,11.419,  0.083,               
+Big string hashtable: 2 Running queries  ,5,  3.563, 3.572, 3.572, 3.556,  0.008,50% misses     
+Big string hashtable: 3 Removing items   ,5,  5.036, 4.992, 5.086, 4.992,  0.036,5000000 removed
+Generic sum: double                      ,5,  0.109, 0.110, 0.110, 0.109,  0.000,    89239683200
+Generic sum: FPI8                        ,5,  0.106, 0.109, 0.110, 0.093,  0.007,    89239683200
+Generic sum: int                         ,5,  0.110, 0.109, 0.110, 0.109,  0.001,    89239683200
+Generic sum: int without template        ,5,  0.106, 0.109, 0.110, 0.093,  0.007,    89239683200
+Matrix multiply: <double>[n*n]           ,5,  1.398, 1.389, 1.404, 1.389,  0.008,-95583583333300
+Matrix multiply: <float>[n*n]            ,5,  3.341, 3.338, 3.354, 3.338,  0.007,-95583582814208
+Matrix multiply: <int>[n*n]              ,5,  1.086, 1.076, 1.092, 1.076,  0.008,      913839180
+Matrix multiply: double[n*n]             ,5,  1.401, 1.388, 1.404, 1.388,  0.007,     -95.583583
+Polynomials                              ,5,  9.772, 9.765, 9.797, 9.750,  0.018,21677722.000000
+Simple arithmetic: double                ,5,  2.983, 2.980, 2.995, 2.979,  0.007,               
+Simple arithmetic: float                 ,5,  0.649, 0.639, 0.671, 0.639,  0.014,               
+Simple arithmetic: FPI8                  ,5,  0.421, 0.421, 0.421, 0.421,  0.000,               
+Simple arithmetic: FPL16                 ,5,  2.225, 2.216, 2.231, 2.215,  0.008,               
+Simple arithmetic: Int                   ,5,  0.331, 0.327, 0.344, 0.327,  0.007,               
+Simple arithmetic: Int64                 ,5,  1.566, 1.576, 1.576, 1.560,  0.008,               
+Simple parsing: 1 Read to end (FILE* x20),5,  0.022, 0.016, 0.031, 0.015,  0.009,               
+Simple parsing: 1 Read to end (ifstr.x20),5,  0.028, 0.031, 0.031, 0.016,  0.007,               
+Simple parsing: 2 Read lines (FILE* x20) ,5,  0.187, 0.187, 0.187, 0.187,  0.000,               
+Simple parsing: 2 Read lines (ifstr.x20) ,5,  0.440, 0.452, 0.452, 0.437,  0.007,               
+Simple parsing: 3 Parse (x20)            ,5,  0.228, 0.234, 0.234, 0.218,  0.008,               
+Simple parsing: 4 Sort (x20)             ,5,  0.546, 0.546, 0.561, 0.531,  0.011,               
+Square root: double                      ,5,  0.109, 0.109, 0.110, 0.109,  0.001,               
+Square root: FPL16                       ,5,  1.819, 1.826, 1.826, 1.809,  0.009,               
+Square root: uint32                      ,5,  0.346, 0.359, 0.359, 0.343,  0.007,               
+Square root: uint64                      ,5,  0.671, 0.670, 0.671, 0.670,  0.000,               
+Sudoku                                   ,5,  2.315, 2.309, 2.325, 2.309,  0.008,20x100 puzzles 

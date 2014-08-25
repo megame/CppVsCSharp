@@ -1,0 +1,20 @@
+Test name                          ,#,Average,First ,Max   ,Min   ,Std.Dev
+Generic sum: double                ,5, 14.284,14.212,14.430,14.197,   0.10
+Generic sum: FPI8                  ,5, 31.494,31.543,31.559,31.372,   0.07
+Generic sum: int                   ,5, 13.894,14.025,14.025,13.822,   0.09
+Generic sum: int via IAdder        ,5, 14.286,14.320,14.414,14.227,   0.08
+Generic sum: int without template  ,5, 11.354,11.357,11.419,11.294,   0.06
+Simple arithmetic: double          ,5,  0.493, 0.531, 0.531, 0.483,   0.02
+Simple arithmetic: float           ,5,  0.072, 0.062, 0.078, 0.062,   0.01
+Simple arithmetic: FPI8            ,5,  4.718, 4.711, 4.758, 4.696,   0.03
+Simple arithmetic: FPL16           ,5,  5.744, 5.741, 5.772, 5.694,   0.03
+Simple arithmetic: Int             ,5,  0.038, 0.032, 0.047, 0.031,   0.01
+Simple arithmetic: Int64           ,5,  0.168, 0.171, 0.172, 0.156,   0.01
+Simple parsing: 1 Read to end (x20),5,  0.053, 0.047, 0.063, 0.046,   0.01
+Simple parsing: 2 Read lines (x20) ,5,  2.296, 2.324, 2.340, 2.247,   0.04
+Simple parsing: 3 Parse (x20)      ,5,  1.897, 1.888, 1.934, 1.872,   0.02
+Simple parsing: 4 Sort (x20)       ,5, 11.416,11.340,11.637,11.295,   0.14
+Square root: double                ,5,  0.122, 0.125, 0.125, 0.109,   0.01
+Square root: FPL16                 ,5,  7.828, 7.846, 7.878, 7.784,   0.04
+Square root: uint32                ,5,  1.719, 1.716, 1.732, 1.716,   0.01
+Square root: uint64                ,5,  2.153, 2.153, 2.153, 2.152,   0.00

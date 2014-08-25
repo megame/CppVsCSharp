@@ -1,0 +1,8 @@
+Test name                             ,#,Average,First,Max  ,Min  ,Std.Dev,Comment       
+Big int hash_map: 1 Adding/setting    ,5,  0.835,0.837,0.838,0.833,   0.00,              
+Big int hash_map: 2 Running queries   ,5,  0.195,0.190,0.199,0.190,   0.00,75% misses    
+Big int hash_map: 3 Removing items    ,5,  0.208,0.207,0.210,0.206,   0.00,250000 removed
+Big string hash_map: 0 Ints to strings,5,  1.091,1.764,1.764,0.917,   0.38,              
+Big string hash_map: 1 Adding/setting ,5,  6.805,8.366,8.366,6.385,   0.87,              
+Big string hash_map: 2 Running queries,5,  2.709,3.277,3.277,2.531,   0.32,75% misses    
+Big string hash_map: 3 Removing items ,5,  3.535,4.119,4.119,3.366,   0.33,250000 removed

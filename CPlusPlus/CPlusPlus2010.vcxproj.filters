@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Boilerplate">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Math">
+      <UniqueIdentifier>{70d1f58d-196f-4c10-9b21-d789e4998309}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="EasyMap.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="FastDelegate.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="hash_map.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="mini_vector.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="Paths.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="ClipConvert.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedPoint.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="num_traits.h">
+      <Filter>Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Benchmarker.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="Misc.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleTimer.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+    <ClInclude Include="Statistic.h">
+      <Filter>Boilerplate</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Paths.cpp">
+      <Filter>Boilerplate</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Boilerplate</Filter>
+    </ClCompile>
+    <ClCompile Include="Benchmarker.cpp" />
+    <ClCompile Include="Benchmarks.cpp" />
+    <ClCompile Include="hashtable_inc.cxx" />
+    <ClCompile Include="Misc.cpp" />
+  </ItemGroup>
+</Project>

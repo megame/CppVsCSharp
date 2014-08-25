@@ -1,0 +1,27 @@
+Test name                               ,#,Average,First,Max  ,Min  ,Std.Dev,Comment
+Big int Dictionary: 1 Adding/setting    ,5,  0.434,0.515,0.515,0.390,  0.049,               
+Big int Dictionary: 2 Running queries   ,5,  0.249,0.249,0.265,0.234,  0.011,75% misses
+Big int Dictionary: 3 Removing          ,5,  0.228,0.234,0.234,0.218,  0.009,2500000 removed
+Big string Dictionary: 0 Ints to strings,3,  1.674,1.732,1.732,1.638,  0.051,               
+Big string Dictionary: 1 Adding/setting ,3,  5.673,5.772,5.772,5.601,  0.088,               
+Big string Dictionary: 2 Running queries,3,  2.735,2.746,2.746,2.730,  0.009,75% misses
+Big string Dictionary: 3 Removing       ,3,  2.808,2.808,2.839,2.777,  0.031,2500000 removed
+Generic sum: double                     ,6,  2.972,2.964,3.027,2.948,  0.029,               
+Generic sum: FPI8                       ,6,  2.246,2.294,2.294,2.230,  0.027,               
+Generic sum: int                        ,6,  1.586,1.591,1.606,1.576,  0.012,               
+Generic sum: int via IMath              ,6,  1.669,1.654,1.716,1.653,  0.024,               
+Generic sum: int without generics       ,6,  1.045,1.045,1.061,1.030,  0.010,               
+Simple arithmetic: double               ,6,  0.130,0.125,0.141,0.125,  0.008,               
+Simple arithmetic: float                ,6,  0.083,0.093,0.094,0.078,  0.008,               
+Simple arithmetic: FPI8                 ,6,  0.410,0.406,0.436,0.405,  0.013,               
+Simple arithmetic: FPL16                ,6,  1.038,1.014,1.077,1.014,  0.028,               
+Simple arithmetic: int                  ,6,  0.047,0.047,0.047,0.046,  0.001,               
+Simple arithmetic: long                 ,6,  0.102,0.094,0.110,0.093,  0.009,               
+Simple parsing: 1 Read to end (x20)     ,5,  0.053,0.063,0.063,0.046,  0.009,               
+Simple parsing: 2 Read lines (x20)      ,5,  0.075,0.078,0.078,0.062,  0.007,               
+Simple parsing: 3 Parse (x20)           ,5,  0.150,0.156,0.156,0.140,  0.009,               
+Simple parsing: 4 Sort (x20)            ,5,  0.852,1.061,1.061,0.780,  0.118,               
+Square root: double                     ,6,  0.128,0.141,0.141,0.125,  0.007,               
+Square root: FPL16                      ,6,  4.810,4.836,4.836,4.789,  0.019,               
+Square root: uint                       ,6,  1.399,1.388,1.404,1.388,  0.008,               
+Square root: ulong                      ,6,  1.643,1.638,1.654,1.638,  0.008,               

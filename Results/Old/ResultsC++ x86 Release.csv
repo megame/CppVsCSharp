@@ -1,0 +1,27 @@
+Test name                             ,#,Average,First ,Max   ,Min   ,Std.Dev,Comment
+Big int hash_map: 1 Adding/setting    ,5,  4.555, 4.555, 4.602, 4.509,   0.05,
+Big int hash_map: 2 Running queries   ,5,  1.042, 1.061, 1.061, 1.014,   0.03,75% misses
+Big int hash_map: 3 Removing items    ,5,  2.680, 2.668, 2.714, 2.636,   0.03,2500000 removed
+Big string hash_map: 0 Ints to strings,5,  1.148, 1.155, 1.155, 1.123,   0.01,
+Big string hash_map: 1 Adding/setting ,5, 12.595,12.589,12.698,12.512,   0.07,
+Big string hash_map: 2 Running queries,5,  3.101, 3.058, 3.198, 3.058,   0.06,75% misses
+Big string hash_map: 3 Removing items ,5,  4.125, 4.087, 4.181, 4.087,   0.05,2500000 removed
+Generic sum: double                   ,5,  0.150, 0.156, 0.156, 0.140,   0.01,
+Generic sum: FPI8                     ,5,  0.215, 0.203, 0.218, 0.203,   0.01,
+Generic sum: int                      ,5,  0.106, 0.109, 0.109, 0.094,   0.01,
+Generic sum: int via IAdder           ,5,  0.399, 0.406, 0.406, 0.390,   0.01,
+Generic sum: int without template     ,5,  0.110, 0.109, 0.110, 0.109,   0.00,
+Simple arithmetic: double             ,5,  0.299, 0.312, 0.312, 0.296,   0.01,
+Simple arithmetic: float              ,5,  0.069, 0.062, 0.078, 0.062,   0.01,
+Simple arithmetic: FPI8               ,5,  0.037, 0.031, 0.047, 0.031,   0.01,
+Simple arithmetic: FPL16              ,5,  0.228, 0.234, 0.234, 0.218,   0.01,
+Simple arithmetic: Int                ,5,  0.031, 0.031, 0.032, 0.031,   0.00,
+Simple arithmetic: Int64              ,5,  0.156, 0.156, 0.156, 0.156,   0.00,
+Simple parsing: 1 Read to end (x20)   ,5,  0.031, 0.031, 0.032, 0.031,   0.00,
+Simple parsing: 2 Read lines (x20)    ,5,  0.449, 0.452, 0.453, 0.437,   0.01,
+Simple parsing: 3 Parse (x20)         ,5,  0.218, 0.219, 0.219, 0.218,   0.00,
+Simple parsing: 4 Sort (x20)          ,5,  0.530, 0.546, 0.546, 0.499,   0.02,
+Square root: double                   ,5,  0.109, 0.110, 0.110, 0.109,   0.00,
+Square root: FPL16                    ,5,  1.881, 1.872, 1.888, 1.872,   0.01,
+Square root: uint32                   ,5,  0.346, 0.358, 0.358, 0.343,   0.01,
+Square root: uint64                   ,5,  0.668, 0.656, 0.671, 0.656,   0.01,

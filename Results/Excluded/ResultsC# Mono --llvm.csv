@@ -1,0 +1,59 @@
+Test name                               , #,Average,First ,Max   ,Min   ,Std.Dev,Comment
+Big int Dictionary: 1 Adding items      , 8,  0.567, 0.640, 0.640, 0.546,  0.033,               
+Big int Dictionary: 2 Running queries   , 8,  0.201, 0.203, 0.203, 0.187,  0.006,50% misses
+Big int Dictionary: 3 Removing          , 8,  0.222, 0.218, 0.234, 0.218,  0.007,5000000 removed
+Big int sorted map: 1 Adding items      , 5, 48.719,48.688,48.985,48.423,  0.211,               
+Big int sorted map: 2 Running queries   , 5,  5.220, 5.210, 5.241, 5.195,  0.018,50% misses
+Big int sorted map: 3 Removing          , 5, 31.434,31.512,31.512,31.356,  0.062,5000000 removed
+Big string Dictionary: 0 Ints to strings, 3,  3.006, 3.027, 3.027, 2.995,  0.018,               
+Big string Dictionary: 1 Adding/setting , 3,  4.555, 4.820, 4.820, 4.306,  0.257,               
+Big string Dictionary: 2 Running queries, 3,  3.900, 3.900, 3.900, 3.900,  0.000,50% misses
+Big string Dictionary: 3 Removing       , 3,  4.071, 4.087, 4.087, 4.056,  0.016,5000000 removed
+Generic sum: double                     ,10,  1.251, 1.248, 1.264, 1.232,  0.010,               
+Generic sum: FPI8                       ,10,  1.569, 1.560, 1.591, 1.560,  0.013,               
+Generic sum: int                        ,10,  0.727, 0.734, 0.749, 0.717,  0.011,               
+Generic sum: int via IMath              ,10,  0.835, 0.842, 0.843, 0.826,  0.008,               
+Generic sum: int without generics       ,10,  0.481, 0.515, 0.515, 0.452,  0.024,               
+Matrix multiply: <double>[n][n]         , 5,  9.603, 9.656, 9.656, 9.578,  0.036,-95583583333300
+Matrix multiply: <float>[n][n]          , 5, 11.326,11.435,11.435,11.263,  0.076,-9.558359E+13
+Matrix multiply: <int>[n][n]            , 5,  5.176, 5.257, 5.257, 5.148,  0.047,      913839180
+Matrix multiply: Array2D<double>        , 5, 11.741,11.731,11.778,11.685,  0.039, -95.5835833333
+Matrix multiply: double[n*n]            , 5,  3.473, 3.463, 3.526, 3.447,  0.033, -95.5835833333
+Matrix multiply: double[n][n]           , 5,  3.513, 3.510, 3.526, 3.510,  0.007, -95.5835833333
+Matrix multiply: double[n¸n]            , 5,  8.380, 8.424, 8.440, 8.299,  0.062, -95.5835833333
+Matrix multiply: int[n][n]              , 5,  3.822, 3.822, 3.837, 3.806,  0.011,      913839180
+P/Invoke: AddDoubles                    , 4,  0.168, 0.156, 0.187, 0.156,  0.015,               
+P/Invoke: AddDoublesIndirect            , 4,  2.672, 2.683, 2.683, 2.668,  0.007,               
+P/Invoke: AddDoublesIndirect w/o return , 4,  0.156, 0.156, 0.156, 0.156,  0.000,               
+P/Invoke: AddFourInts                   , 4,  0.171, 0.172, 0.172, 0.171,  0.000,               
+P/Invoke: AddInts                       , 4,  0.156, 0.156, 0.156, 0.156,  0.000,               
+P/Invoke: CharStringArgument            , 4,  5.101, 5.054, 5.148, 5.054,  0.038,               
+P/Invoke: GetPointY                     , 4,  0.187, 0.187, 0.187, 0.187,  0.000,               
+P/Invoke: GetPointYIndirect             , 4,  0.164, 0.172, 0.172, 0.156,  0.009,               
+P/Invoke: MakePoint                     , 4,  0.180, 0.187, 0.188, 0.171,  0.009,               
+P/Invoke: MakePointIndirect             , 4,  2.691, 2.699, 2.699, 2.683,  0.009,               
+P/Invoke: NextInt                       , 4,  0.141, 0.140, 0.141, 0.140,  0.000,               
+P/Invoke: ReturnBSTR                    , 4,  3.241, 3.244, 3.260, 3.214,  0.019,               
+P/Invoke: ReturnString                  , 4,  5.655, 5.740, 5.740, 5.601,  0.060,               
+P/Invoke: ReturnWString                 , 4,  3.440, 3.433, 3.479, 3.417,  0.027,               
+P/Invoke: WCharStringArgument           , 4,  0.378, 0.374, 0.390, 0.374,  0.008,               
+Polynomials                             , 5, 13.007,13.010,13.042,12.948,  0.036,2.167772E+07
+Simple arithmetic: double               , 5,  0.892, 0.890, 0.905, 0.889,  0.007,               
+Simple arithmetic: float                , 5,  0.889, 0.889, 0.905, 0.873,  0.011,               
+Simple arithmetic: FPI8                 , 5,  2.758, 2.762, 2.792, 2.746,  0.020,               
+Simple arithmetic: FPL16                , 5, 10.936,10.982,10.982,10.920,  0.027,               
+Simple arithmetic: int                  , 5,  0.437, 0.437, 0.437, 0.436,  0.000,               
+Simple arithmetic: long                 , 5,  5.057, 5.039, 5.241, 4.992,  0.105,               
+Simple parsing: 1 Read to end (x20)     , 5,  0.063, 0.078, 0.078, 0.047,  0.011,               
+Simple parsing: 2 Read lines (x20)      , 5,  0.194, 0.187, 0.203, 0.187,  0.008,               
+Simple parsing: 3 Parse (x20)           , 5,  0.237, 0.234, 0.249, 0.234,  0.007,               
+Simple parsing: 4 Sort (x20)            , 5,  5.532, 5.554, 5.569, 5.491,  0.030,               
+Square root: double                     , 6,  0.070, 0.078, 0.078, 0.062,  0.009,               
+Square root: FPL16                      , 6,  3.830, 3.838, 3.838, 3.807,  0.013,               
+Square root: uint                       , 6,  0.616, 0.624, 0.624, 0.608,  0.009,               
+Square root: ulong                      , 6,  1.357, 1.357, 1.357, 1.357,  0.000,               
+Sudoku                                  , 5,  8.517, 8.533, 8.564, 8.424,  0.055,20x100 puzzles
+Trivial method calls: Interface NoOp    ,20,  0.295, 0.296, 0.297, 0.280,  0.005,               
+Trivial method calls: No-inline NoOp    ,20,  0.215, 0.218, 0.234, 0.202,  0.008,               
+Trivial method calls: Static NoOp       ,20,  0.035, 0.031, 0.047, 0.031,  0.007,               
+Trivial method calls: Virtual NoOp      ,20,  0.278, 0.281, 0.296, 0.265,  0.008,               
