@@ -383,7 +383,7 @@ namespace Benchmark
 	public class BenchmarkAttribute : Attribute
 	{
 		public readonly string Name;
-		public int Trials = -1;
+		public int Trials = 3;
 
 		public BenchmarkAttribute() { }
 		public BenchmarkAttribute(int defaultTrialCount) { Trials = defaultTrialCount; }

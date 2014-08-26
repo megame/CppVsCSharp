@@ -26,192 +26,192 @@ namespace Benchmark
 
 		public Benchmarks(Benchmarker b) { _b = b; }
 
-		#region Hashtables
+        //#region Hashtables
 
-		#if CompactFramework
-		const int MapSizeLimit = Iterations / 4; // CE has per-process heap size limit, preventing a huge dictionary
-		#else
-		const int MapSizeLimit = Iterations / 2; // Desktop can do more, but 50% misses is still a reasonable test
-		#endif
+        //#if CompactFramework
+        //const int MapSizeLimit = Iterations / 4; // CE has per-process heap size limit, preventing a huge dictionary
+        //#else
+        //const int MapSizeLimit = Iterations / 2; // Desktop can do more, but 50% misses is still a reasonable test
+        //#endif
 
-		[Benchmark("Big int Dictionary", 8)]
-		public object IntDictionaryTests()
-		{
-			var _dict = new Dictionary<int, int>();
+        //[Benchmark("Big int Dictionary", 8)]
+        //public object IntDictionaryTests()
+        //{
+        //    var _dict = new Dictionary<int, int>();
 			
-			_b.MeasureAndRecord("1 Adding items", () =>
-			{
-				var dict = _dict;
-				for (int i = 0; i < Iterations; i++) {
-					if (dict.Count >= MapSizeLimit)
-						dict.Clear();
-					dict[i ^ 314159] = i;
-				}
-			});
-			_b.MeasureAndRecord("2 Running queries", () =>
-			{
-				var dict = _dict;
-				int misses = 0, value;
-				for (int i = 0; i < Iterations; i++)
-					if (!dict.TryGetValue(i ^ 314159, out value))
-						misses++;
-				return string.Format("{0}% misses", misses * 100 / Iterations);
-			});
-			_b.MeasureAndRecord("3 Removing items", () =>
-			{
-				var dict = _dict;
-				int removed = 0;
-				for (int i = 0; i < Iterations; i++)
-					if (dict.Remove(i ^ 314159))
-						removed++;
-				return string.Format("{0} removed", removed);
-			});
+        //    _b.MeasureAndRecord("1 Adding items", () =>
+        //    {
+        //        var dict = _dict;
+        //        for (int i = 0; i < Iterations; i++) {
+        //            if (dict.Count >= MapSizeLimit)
+        //                dict.Clear();
+        //            dict[i ^ 314159] = i;
+        //        }
+        //    });
+        //    _b.MeasureAndRecord("2 Running queries", () =>
+        //    {
+        //        var dict = _dict;
+        //        int misses = 0, value;
+        //        for (int i = 0; i < Iterations; i++)
+        //            if (!dict.TryGetValue(i ^ 314159, out value))
+        //                misses++;
+        //        return string.Format("{0}% misses", misses * 100 / Iterations);
+        //    });
+        //    _b.MeasureAndRecord("3 Removing items", () =>
+        //    {
+        //        var dict = _dict;
+        //        int removed = 0;
+        //        for (int i = 0; i < Iterations; i++)
+        //            if (dict.Remove(i ^ 314159))
+        //                removed++;
+        //        return string.Format("{0} removed", removed);
+        //    });
 			
-			return Benchmarker.DiscardResult;
-		}
+        //    return Benchmarker.DiscardResult;
+        //}
 
-		[Benchmark("Big string Dictionary", 3)]
-		public object StringDictionaryTests()
-		{
-			var _dict = new Dictionary<string, string>();
+        //[Benchmark("Big string Dictionary", 3)]
+        //public object StringDictionaryTests()
+        //{
+        //    var _dict = new Dictionary<string, string>();
 
-			_b.MeasureAndRecord("0 Ints to strings", () =>
-			{
-				// This just measures how long it takes to generate the strings used 
-				// in the rest of the tests, in case you would like to mentally 
-				// subtract this time from the results.
-				for (int i = 0; i < Iterations; i++)
-					i.ToString();
-			});
-			_b.MeasureAndRecord("1 Adding/setting", () =>
-			{
-				var dict = _dict;
-				for (int i = 0; i < Iterations; i++)
-				{
-					if (dict.Count >= MapSizeLimit)
-						dict.Clear();
-					string s = (i ^ 314159).ToString();
-					dict[s] = s;
-				}
-			});
-			_b.MeasureAndRecord("2 Running queries", () =>
-			{
-				var dict = _dict;
-				int misses = 0;
-				for (int i = 0; i < Iterations; i++)
-				{
-					string s = (i ^ 314159).ToString();
-					if (!dict.TryGetValue(s, out s))
-						misses++;
-				}
-				return string.Format("{0}% misses", misses * 100 / Iterations);
-			});
-			_b.MeasureAndRecord("3 Removing items", () =>
-			{
-				var dict = _dict;
-				int removed = 0;
-				for (int i = 0; i < Iterations; i++)
-				{
-					string s = (i ^ 314159).ToString();
-					if (dict.Remove(s))
-						removed++;
-				}
-				return string.Format("{0} removed", removed);
-			});
+        //    _b.MeasureAndRecord("0 Ints to strings", () =>
+        //    {
+        //        // This just measures how long it takes to generate the strings used 
+        //        // in the rest of the tests, in case you would like to mentally 
+        //        // subtract this time from the results.
+        //        for (int i = 0; i < Iterations; i++)
+        //            i.ToString();
+        //    });
+        //    _b.MeasureAndRecord("1 Adding/setting", () =>
+        //    {
+        //        var dict = _dict;
+        //        for (int i = 0; i < Iterations; i++)
+        //        {
+        //            if (dict.Count >= MapSizeLimit)
+        //                dict.Clear();
+        //            string s = (i ^ 314159).ToString();
+        //            dict[s] = s;
+        //        }
+        //    });
+        //    _b.MeasureAndRecord("2 Running queries", () =>
+        //    {
+        //        var dict = _dict;
+        //        int misses = 0;
+        //        for (int i = 0; i < Iterations; i++)
+        //        {
+        //            string s = (i ^ 314159).ToString();
+        //            if (!dict.TryGetValue(s, out s))
+        //                misses++;
+        //        }
+        //        return string.Format("{0}% misses", misses * 100 / Iterations);
+        //    });
+        //    _b.MeasureAndRecord("3 Removing items", () =>
+        //    {
+        //        var dict = _dict;
+        //        int removed = 0;
+        //        for (int i = 0; i < Iterations; i++)
+        //        {
+        //            string s = (i ^ 314159).ToString();
+        //            if (dict.Remove(s))
+        //                removed++;
+        //        }
+        //        return string.Format("{0} removed", removed);
+        //    });
 
-			return Benchmarker.DiscardResult;
-		}
+        //    return Benchmarker.DiscardResult;
+        //}
 
-		#endregion
+        //#endregion
 
-		#region Map (SortedDictionary)
-		#if !CompactFramework // Lacks SortedDictionary
+        //#region Map (SortedDictionary)
+        //#if !CompactFramework // Lacks SortedDictionary
 
-		[Benchmark("Big int sorted map")]
-		public object IntMapTests()
-		{
-			var _dict = new SortedDictionary<int, int>();
+        //[Benchmark("Big int sorted map")]
+        //public object IntMapTests()
+        //{
+        //    var _dict = new SortedDictionary<int, int>();
 
-			_b.MeasureAndRecord("1 Adding items", () =>
-			{
-				var dict = _dict;
-				for (int i = 0; i < Iterations; i++)
-				{
-					if (dict.Count >= MapSizeLimit)
-						dict.Clear();
-					dict[i ^ 314159] = i;
-				}
-			});
-			_b.MeasureAndRecord("2 Running queries", () =>
-			{
-				var dict = _dict;
-				int misses = 0, value;
-				for (int i = 0; i < Iterations; i++)
-					if (!dict.TryGetValue(i ^ 314159, out value))
-						misses++;
-				return string.Format("{0}% misses", misses * 100 / Iterations);
-			});
-			_b.MeasureAndRecord("3 Removing items", () =>
-			{
-				var dict = _dict;
-				int removed = 0;
-				for (int i = 0; i < Iterations; i++)
-					if (dict.Remove(i ^ 314159))
-						removed++;
-				return string.Format("{0} removed", removed);
-			});
+        //    _b.MeasureAndRecord("1 Adding items", () =>
+        //    {
+        //        var dict = _dict;
+        //        for (int i = 0; i < Iterations; i++)
+        //        {
+        //            if (dict.Count >= MapSizeLimit)
+        //                dict.Clear();
+        //            dict[i ^ 314159] = i;
+        //        }
+        //    });
+        //    _b.MeasureAndRecord("2 Running queries", () =>
+        //    {
+        //        var dict = _dict;
+        //        int misses = 0, value;
+        //        for (int i = 0; i < Iterations; i++)
+        //            if (!dict.TryGetValue(i ^ 314159, out value))
+        //                misses++;
+        //        return string.Format("{0}% misses", misses * 100 / Iterations);
+        //    });
+        //    _b.MeasureAndRecord("3 Removing items", () =>
+        //    {
+        //        var dict = _dict;
+        //        int removed = 0;
+        //        for (int i = 0; i < Iterations; i++)
+        //            if (dict.Remove(i ^ 314159))
+        //                removed++;
+        //        return string.Format("{0} removed", removed);
+        //    });
 
-			return Benchmarker.DiscardResult;
-		}
+        //    return Benchmarker.DiscardResult;
+        //}
 
-		#endif
-		#endregion
+        //#endif
+        //#endregion
 
-		#region Square roots
+        //#region Square roots
 
-		[Benchmark("Square root", 6)]
-		public object Roots()
-		{
-			long totalI = 0, totalL = 0;
-			double totalD = 0;
-			const int Base = 999999;
+        //[Benchmark("Square root", 6)]
+        //public object Roots()
+        //{
+        //    long totalI = 0, totalL = 0;
+        //    double totalD = 0;
+        //    const int Base = 999999;
 
-			_b.MeasureAndRecord("double", () =>
-			{
-				double total = 0;
-				for (double i = Base; i < Base + Iterations; i++)
-					total += Math.Sqrt(i);
-				totalD = total;
-			});
-			_b.MeasureAndRecord("uint", () =>
-			{
-				long total = 0;
-				for (int i = Base; i < Base + Iterations; i++)
-					total += MathEx.Sqrt((uint)i);
-				totalI = total; // avoid JIT overoptimization
-			});
-			_b.MeasureAndRecord("ulong", () =>
-			{
-				long total = 0;
-				for (int i = Base; i < Base + Iterations; i++)
-					total += MathEx.Sqrt((ulong)i);
-				totalL = total;
-			});
-			FPL16 totalFP = 0;
-			_b.MeasureAndRecord("FPL16", () =>
-			{
-				FPL16 total = 0;
-				for (FPL16 i = Base; i < (FPL16)(Base + Iterations); i++)
-					total += i.Sqrt();
-				totalFP = total;
-			});
-			Debug.Assert(totalI == totalL);
-			Debug.Assert(totalD > (double)totalI && totalD < (double)(totalI + Iterations));
-			Debug.Assert((totalFP - (FPL16)totalD).Abs().N < Iterations);
-			return Benchmarker.DiscardResult;
-		}
+        //    _b.MeasureAndRecord("double", () =>
+        //    {
+        //        double total = 0;
+        //        for (double i = Base; i < Base + Iterations; i++)
+        //            total += Math.Sqrt(i);
+        //        totalD = total;
+        //    });
+        //    _b.MeasureAndRecord("uint", () =>
+        //    {
+        //        long total = 0;
+        //        for (int i = Base; i < Base + Iterations; i++)
+        //            total += MathEx.Sqrt((uint)i);
+        //        totalI = total; // avoid JIT overoptimization
+        //    });
+        //    _b.MeasureAndRecord("ulong", () =>
+        //    {
+        //        long total = 0;
+        //        for (int i = Base; i < Base + Iterations; i++)
+        //            total += MathEx.Sqrt((ulong)i);
+        //        totalL = total;
+        //    });
+        //    FPL16 totalFP = 0;
+        //    _b.MeasureAndRecord("FPL16", () =>
+        //    {
+        //        FPL16 total = 0;
+        //        for (FPL16 i = Base; i < (FPL16)(Base + Iterations); i++)
+        //            total += i.Sqrt();
+        //        totalFP = total;
+        //    });
+        //    Debug.Assert(totalI == totalL);
+        //    Debug.Assert(totalD > (double)totalI && totalD < (double)(totalI + Iterations));
+        //    Debug.Assert((totalFP - (FPL16)totalD).Abs().N < Iterations);
+        //    return Benchmarker.DiscardResult;
+        //}
 
-		#endregion
+        //#endregion
 
 		#region Simple arithmetic
 
@@ -342,284 +342,284 @@ namespace Benchmark
 
 		#endregion
 
-		#region Simple parsing
+        //#region Simple parsing
 
-		TextReader OpenTestDictFile()
-		{
-			string home = Program.HomePath;
-			string filename;
-			while (!File.Exists(filename = Path.Combine(home, "TestDict.txt")))
-			{
-				int i = Math.Max(home.LastIndexOf('\\'), home.LastIndexOf('/'));
-				if (i == -1)
-					throw new FileNotFoundException("Missing TestDict.txt");
-				home = home.Substring(0, i);
-			}
-			return File.OpenText(filename);
-		}
+        //TextReader OpenTestDictFile()
+        //{
+        //    string home = Program.HomePath;
+        //    string filename;
+        //    while (!File.Exists(filename = Path.Combine(home, "TestDict.txt")))
+        //    {
+        //        int i = Math.Max(home.LastIndexOf('\\'), home.LastIndexOf('/'));
+        //        if (i == -1)
+        //            throw new FileNotFoundException("Missing TestDict.txt");
+        //        home = home.Substring(0, i);
+        //    }
+        //    return File.OpenText(filename);
+        //}
 
-		[Benchmark("Simple parsing")]
-		public object SimpleParsing()
-		{
-			const int Repetitions = 
-			#if CompactFramework
-				2;
-			#else
-				20;
-			#endif
+        //[Benchmark("Simple parsing")]
+        //public object SimpleParsing()
+        //{
+        //    const int Repetitions = 
+        //    #if CompactFramework
+        //        2;
+        //    #else
+        //        20;
+        //    #endif
 
-			var lines = new List<string>();
+        //    var lines = new List<string>();
 
-			_b.MeasureAndRecord(string.Format("1 Read to end (x{0})", Repetitions.ToString()), () =>
-			{
-				for (int i = 0; i < Repetitions; i++)
-					using (TextReader reader = OpenTestDictFile())
-						reader.ReadToEnd();
-			});
+        //    _b.MeasureAndRecord(string.Format("1 Read to end (x{0})", Repetitions.ToString()), () =>
+        //    {
+        //        for (int i = 0; i < Repetitions; i++)
+        //            using (TextReader reader = OpenTestDictFile())
+        //                reader.ReadToEnd();
+        //    });
 
-			_b.MeasureAndRecord(string.Format("2 Read lines (x{0})", Repetitions.ToString()), () =>
-			{
-				for (int i = 0; i < Repetitions; i++) {
-					lines.Clear();
-					using (TextReader reader = OpenTestDictFile())
-					{
-						string line;
-						while ((line = reader.ReadLine()) != null)
-							lines.Add(line);
-					}
-				}
-			});
+        //    _b.MeasureAndRecord(string.Format("2 Read lines (x{0})", Repetitions.ToString()), () =>
+        //    {
+        //        for (int i = 0; i < Repetitions; i++) {
+        //            lines.Clear();
+        //            using (TextReader reader = OpenTestDictFile())
+        //            {
+        //                string line;
+        //                while ((line = reader.ReadLine()) != null)
+        //                    lines.Add(line);
+        //            }
+        //        }
+        //    });
 
-			var entries = new List<KeyValuePair<string, string>>();
+        //    var entries = new List<KeyValuePair<string, string>>();
 
-			_b.MeasureAndRecord(string.Format("3 Parse (x{0})", Repetitions.ToString()), () =>
-			{
-				for (int r = 0; r < Repetitions; r++)
-				{
-					entries.Clear();
-					for (int i = 1; i < lines.Count; i++)
-					{
-						string line = lines[i];
-						if (line == "" || line[0] == ';')
-							continue;
+        //    _b.MeasureAndRecord(string.Format("3 Parse (x{0})", Repetitions.ToString()), () =>
+        //    {
+        //        for (int r = 0; r < Repetitions; r++)
+        //        {
+        //            entries.Clear();
+        //            for (int i = 1; i < lines.Count; i++)
+        //            {
+        //                string line = lines[i];
+        //                if (line == "" || line[0] == ';')
+        //                    continue;
 
-						string key;
-						string value;
-						int index = line.IndexOf(":=");
-						if (index > 0)
-						{
-							key = line.Substring(0, index);
-							value = line.Substring(index + 2);
-							while (i + 1 < lines.Count && !lines[i + 1].Contains(":="))
-								value += "\n" + lines[++i];
-							entries.Add(new KeyValuePair<string, string>(key, value));
-						}
-					}
-				}
-			});
+        //                string key;
+        //                string value;
+        //                int index = line.IndexOf(":=");
+        //                if (index > 0)
+        //                {
+        //                    key = line.Substring(0, index);
+        //                    value = line.Substring(index + 2);
+        //                    while (i + 1 < lines.Count && !lines[i + 1].Contains(":="))
+        //                        value += "\n" + lines[++i];
+        //                    entries.Add(new KeyValuePair<string, string>(key, value));
+        //                }
+        //            }
+        //        }
+        //    });
 
-			_b.MeasureAndRecord(string.Format("4 Sort (x{0})", Repetitions.ToString()), () =>
-			{
-				SimpleTimer timer = new SimpleTimer();
-				int waste = 0;
+        //    _b.MeasureAndRecord(string.Format("4 Sort (x{0})", Repetitions.ToString()), () =>
+        //    {
+        //        SimpleTimer timer = new SimpleTimer();
+        //        int waste = 0;
 
-				for (int r = 0; r < Repetitions; r++)
-				{
-					// Mess up some of the entries, to ensure sorting requires some work.
-					// Time spent randomizing is tiny, but will be subtracted from the total.
-					timer.Restart();
-					for (int i = 0; i < entries.Count; i += 4) {
-						var j = _r.Next(entries.Count);
-						var tmp = entries[i];
-						entries[j] = entries[i];
-						entries[i] = tmp;
-					}
-					waste += timer.Millisec;
+        //        for (int r = 0; r < Repetitions; r++)
+        //        {
+        //            // Mess up some of the entries, to ensure sorting requires some work.
+        //            // Time spent randomizing is tiny, but will be subtracted from the total.
+        //            timer.Restart();
+        //            for (int i = 0; i < entries.Count; i += 4) {
+        //                var j = _r.Next(entries.Count);
+        //                var tmp = entries[i];
+        //                entries[j] = entries[i];
+        //                entries[i] = tmp;
+        //            }
+        //            waste += timer.Millisec;
 						 
-					entries.Sort((a, b) => string.Compare(a.Key, b.Key, true));
-				}
-				return Benchmarker.SubtractOverhead(waste);
-			});
+        //            entries.Sort((a, b) => string.Compare(a.Key, b.Key, true));
+        //        }
+        //        return Benchmarker.SubtractOverhead(waste);
+        //    });
 
-			return Benchmarker.DiscardResult;
-		}
+        //    return Benchmarker.DiscardResult;
+        //}
 
-		#endregion
+        //#endregion
 
-		#region P/Invoke
+        //#region P/Invoke
 
-		// Variables that guarantee that the return value marshaling is not optimized
-		// away (although I suspect that it's never optimized away, anyway).
-		static string _returnedString;
-		static double _returnedDouble;
-		static char _returnedChar;
-		static Point _returnedPoint;
+        //// Variables that guarantee that the return value marshaling is not optimized
+        //// away (although I suspect that it's never optimized away, anyway).
+        //static string _returnedString;
+        //static double _returnedDouble;
+        //static char _returnedChar;
+        //static Point _returnedPoint;
 
-		[Benchmark("P/Invoke", Trials=4)]
-		public object TestPInvoke()
-		{
-			_b.MeasureAndRecord("NextInt", () =>
-			{
-				SimpleDll.SetNextInt(1);
-				int sum = 0;
-				for (int i = 0; i < Iterations; i++)
-					sum += SimpleDll.NextInt();
-			});
-			_b.MeasureAndRecord("AddInts", () =>
-			{
-				for (int i = 0; i < Iterations; i++)
-					SimpleDll.AddInts(i, i);
-			});
-			_b.MeasureAndRecord("AddFourInts", () =>
-			{
-				for (int i = 0; i < Iterations; i++)
-					SimpleDll.AddFourInts(i, i, i, i);
-			});
-			_b.MeasureAndRecord("AddDoubles", () =>
-			{
-				for (double i = 0; i < Iterations; i++)
-					SimpleDll.AddDoubles(i, i);
-			});
-			_b.MeasureAndRecord("AddDoublesIndirect w/o return", () =>
-			{
-				for (double i = 0; i < Iterations; i++)
-					SimpleDll.AddDoublesIndirect(ref i, ref i);
-			});
-			_b.MeasureAndRecord("AddDoublesIndirect", () =>
-			{
-				for (double i = 0; i < Iterations; i++)
-				{
-					IntPtr ptr = SimpleDll.AddDoublesIndirect(ref i, ref i);
-					_returnedDouble = (double)Marshal.PtrToStructure(ptr, typeof(double));
-				}
-			});
-			_b.MeasureAndRecord("CharStringArgument", () =>
-			{
-				for (int i = 0; i < Iterations; i++)
-					_returnedChar = SimpleDll.CharStringArgument("char string argument");
-			});
-			_b.MeasureAndRecord("WCharStringArgument", () =>
-			{
-				for (int i = 0; i < Iterations; i++)
-					_returnedChar = SimpleDll.WCharStringArgument("wchar string argument");
-			});
-			_b.MeasureAndRecord("ReturnString", () =>
-			{
-				#if CompactFramework
-			   throw new NotSupportedException("Compact Framework does not support char* marshaling");
-				#else
-				for (int i = 0; i < Iterations; i++)
-					_returnedString = Marshal.PtrToStringAnsi(SimpleDll.ReturnString());
-				#endif
-			});
-			_b.MeasureAndRecord("ReturnWString", () =>
-			{
-				#if CompactFramework
-				throw new NotSupportedException("ReturnWString sometimes causes a crash after the benchmark");
-				#else
-				if (Environment.Version.Major == 4 && IntPtr.Size == 8)
-				{
-					// Calling ReturnWString stops the process on the very first 
-					// call. When running in the debugger, no exception occurs; the
-					// debugger stops as though the program terminated normally.
-					throw new NotSupportedException("ReturnWString crashes x64 .NET 4 on the test PC");
-				}
-				for (int i = 0; i < Iterations; i++)
-					_returnedString = SimpleDll.ReturnWString();
-				#endif
-			});
-			_b.MeasureAndRecord("ReturnBSTR", () =>
-			{
-				#if CompactFramework
-				throw new NotSupportedException("ReturnBSTR crashes the CF Garbage Collector (EE.GC_Collect(int))");
-				#else
-				for (int i = 0; i < Iterations; i++)
-					_returnedString = SimpleDll.ReturnBSTR();
-				#endif
-			});
-			_b.MeasureAndRecord("MakePoint", () =>
-			{
-				for (int i = 0; i < Iterations; i++)
-					_returnedPoint = SimpleDll.MakePoint(i, -i);
-			});
-			_b.MeasureAndRecord("MakePointIndirect", () =>
-			{
-				for (int i = 0; i < Iterations; i++)
-				{
-					IntPtr ptr = SimpleDll.MakePointIndirect(i, -i);
-					_returnedPoint = (Point)Marshal.PtrToStructure(ptr, typeof(Point));
-				}
-			});
-			_b.MeasureAndRecord("GetPointY", () =>
-			{
-				Point p = new Point(24, 25);
-				for (int i = 0; i < Iterations; i++)
-					SimpleDll.GetPointY(p);
-			});
-			_b.MeasureAndRecord("GetPointYIndirect", () =>
-			{
-				Point p = new Point(24, 25);
-				for (int i = 0; i < Iterations; i++)
-					SimpleDll.GetPointYIndirect(ref p);
-			});
+        //[Benchmark("P/Invoke", Trials=4)]
+        //public object TestPInvoke()
+        //{
+        //    _b.MeasureAndRecord("NextInt", () =>
+        //    {
+        //        SimpleDll.SetNextInt(1);
+        //        int sum = 0;
+        //        for (int i = 0; i < Iterations; i++)
+        //            sum += SimpleDll.NextInt();
+        //    });
+        //    _b.MeasureAndRecord("AddInts", () =>
+        //    {
+        //        for (int i = 0; i < Iterations; i++)
+        //            SimpleDll.AddInts(i, i);
+        //    });
+        //    _b.MeasureAndRecord("AddFourInts", () =>
+        //    {
+        //        for (int i = 0; i < Iterations; i++)
+        //            SimpleDll.AddFourInts(i, i, i, i);
+        //    });
+        //    _b.MeasureAndRecord("AddDoubles", () =>
+        //    {
+        //        for (double i = 0; i < Iterations; i++)
+        //            SimpleDll.AddDoubles(i, i);
+        //    });
+        //    _b.MeasureAndRecord("AddDoublesIndirect w/o return", () =>
+        //    {
+        //        for (double i = 0; i < Iterations; i++)
+        //            SimpleDll.AddDoublesIndirect(ref i, ref i);
+        //    });
+        //    _b.MeasureAndRecord("AddDoublesIndirect", () =>
+        //    {
+        //        for (double i = 0; i < Iterations; i++)
+        //        {
+        //            IntPtr ptr = SimpleDll.AddDoublesIndirect(ref i, ref i);
+        //            _returnedDouble = (double)Marshal.PtrToStructure(ptr, typeof(double));
+        //        }
+        //    });
+        //    _b.MeasureAndRecord("CharStringArgument", () =>
+        //    {
+        //        for (int i = 0; i < Iterations; i++)
+        //            _returnedChar = SimpleDll.CharStringArgument("char string argument");
+        //    });
+        //    _b.MeasureAndRecord("WCharStringArgument", () =>
+        //    {
+        //        for (int i = 0; i < Iterations; i++)
+        //            _returnedChar = SimpleDll.WCharStringArgument("wchar string argument");
+        //    });
+        //    _b.MeasureAndRecord("ReturnString", () =>
+        //    {
+        //        #if CompactFramework
+        //       throw new NotSupportedException("Compact Framework does not support char* marshaling");
+        //        #else
+        //        for (int i = 0; i < Iterations; i++)
+        //            _returnedString = Marshal.PtrToStringAnsi(SimpleDll.ReturnString());
+        //        #endif
+        //    });
+        //    _b.MeasureAndRecord("ReturnWString", () =>
+        //    {
+        //        #if CompactFramework
+        //        throw new NotSupportedException("ReturnWString sometimes causes a crash after the benchmark");
+        //        #else
+        //        if (Environment.Version.Major == 4 && IntPtr.Size == 8)
+        //        {
+        //            // Calling ReturnWString stops the process on the very first 
+        //            // call. When running in the debugger, no exception occurs; the
+        //            // debugger stops as though the program terminated normally.
+        //            throw new NotSupportedException("ReturnWString crashes x64 .NET 4 on the test PC");
+        //        }
+        //        for (int i = 0; i < Iterations; i++)
+        //            _returnedString = SimpleDll.ReturnWString();
+        //        #endif
+        //    });
+        //    _b.MeasureAndRecord("ReturnBSTR", () =>
+        //    {
+        //        #if CompactFramework
+        //        throw new NotSupportedException("ReturnBSTR crashes the CF Garbage Collector (EE.GC_Collect(int))");
+        //        #else
+        //        for (int i = 0; i < Iterations; i++)
+        //            _returnedString = SimpleDll.ReturnBSTR();
+        //        #endif
+        //    });
+        //    _b.MeasureAndRecord("MakePoint", () =>
+        //    {
+        //        for (int i = 0; i < Iterations; i++)
+        //            _returnedPoint = SimpleDll.MakePoint(i, -i);
+        //    });
+        //    _b.MeasureAndRecord("MakePointIndirect", () =>
+        //    {
+        //        for (int i = 0; i < Iterations; i++)
+        //        {
+        //            IntPtr ptr = SimpleDll.MakePointIndirect(i, -i);
+        //            _returnedPoint = (Point)Marshal.PtrToStructure(ptr, typeof(Point));
+        //        }
+        //    });
+        //    _b.MeasureAndRecord("GetPointY", () =>
+        //    {
+        //        Point p = new Point(24, 25);
+        //        for (int i = 0; i < Iterations; i++)
+        //            SimpleDll.GetPointY(p);
+        //    });
+        //    _b.MeasureAndRecord("GetPointYIndirect", () =>
+        //    {
+        //        Point p = new Point(24, 25);
+        //        for (int i = 0; i < Iterations; i++)
+        //            SimpleDll.GetPointYIndirect(ref p);
+        //    });
 
-			return Benchmarker.DiscardResult;
-		}
+        //    return Benchmarker.DiscardResult;
+        //}
 
-		#endregion
+        //#endregion
 
-		#region Trivial method calls
+        //#region Trivial method calls
 
-		[Benchmark("Trivial method calls", 
-		#if !CompactFramework
-			Trials = 1)] // Printing the results is very slow in WinCE so use less trials
-		#else
-			Trials = 20)] // Desktop Windows has imprecise timer measurements so use lots of trials
-		#endif
-		public object TestFunctionCalls()
-		{
-			_b.MeasureAndRecord("Static NoOp", () =>
-			{
-				for (int i = 0; i < IterationsX10; i++)
-					NoOp();
-			});
-			_b.MeasureAndRecord("No-inline NoOp", () =>
-			{
-				for (int i = 0; i < IterationsX10; i++)
-					NonInlineNoOp();
-			});
-			_b.MeasureAndRecord("Virtual NoOp", () =>
-			{
-				for (int i = 0; i < IterationsX10; i++)
-					VirtualNoOp();
-			});
-			_b.MeasureAndRecord("Interface NoOp", () =>
-			{
-				Benchmark.INoOp @interface = this;
-				for (int i = 0; i < IterationsX10; i++)
-					@interface.INoOp();
-			});
+        //[Benchmark("Trivial method calls", 
+        //#if !CompactFramework
+        //    Trials = 1)] // Printing the results is very slow in WinCE so use less trials
+        //#else
+        //    Trials = 20)] // Desktop Windows has imprecise timer measurements so use lots of trials
+        //#endif
+        //public object TestFunctionCalls()
+        //{
+        //    _b.MeasureAndRecord("Static NoOp", () =>
+        //    {
+        //        for (int i = 0; i < IterationsX10; i++)
+        //            NoOp();
+        //    });
+        //    _b.MeasureAndRecord("No-inline NoOp", () =>
+        //    {
+        //        for (int i = 0; i < IterationsX10; i++)
+        //            NonInlineNoOp();
+        //    });
+        //    _b.MeasureAndRecord("Virtual NoOp", () =>
+        //    {
+        //        for (int i = 0; i < IterationsX10; i++)
+        //            VirtualNoOp();
+        //    });
+        //    _b.MeasureAndRecord("Interface NoOp", () =>
+        //    {
+        //        Benchmark.INoOp @interface = this;
+        //        for (int i = 0; i < IterationsX10; i++)
+        //            @interface.INoOp();
+        //    });
 
-			return Benchmarker.DiscardResult;
-		}
+        //    return Benchmarker.DiscardResult;
+        //}
 
-		static void NoOp() { }
+        //static void NoOp() { }
 
-		[MethodImplAttribute(MethodImplOptions.NoInlining)]
-		static void NonInlineNoOp() { }
+        //[MethodImplAttribute(MethodImplOptions.NoInlining)]
+        //static void NonInlineNoOp() { }
 
-		[MethodImplAttribute(MethodImplOptions.NoInlining)]
-		protected virtual void VirtualNoOp() { }
+        //[MethodImplAttribute(MethodImplOptions.NoInlining)]
+        //protected virtual void VirtualNoOp() { }
 
-		static int AddInts(int x, int y) { return x + y; }
+        //static int AddInts(int x, int y) { return x + y; }
 
-		[MethodImplAttribute(MethodImplOptions.NoInlining)]
-		static int NonInlineAddInts(int x, int y) { return x + y; }
+        //[MethodImplAttribute(MethodImplOptions.NoInlining)]
+        //static int NonInlineAddInts(int x, int y) { return x + y; }
 
-		[MethodImplAttribute(MethodImplOptions.NoInlining)]
-		protected virtual int VirtualAddInts(int x, int y) { return x + y; }
+        //[MethodImplAttribute(MethodImplOptions.NoInlining)]
+        //protected virtual int VirtualAddInts(int x, int y) { return x + y; }
 
-		#endregion
+        //#endregion
 
 		#region Matrix multiply
 

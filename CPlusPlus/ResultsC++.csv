@@ -1,0 +1,21 @@
+Test name                        ,#,Average,First,Max  ,Min  ,Std.Dev,Comment        
+Generic sum: double              ,3,  0.011,0.016,0.016,0.000,  0.009,    89239683200
+Generic sum: FPI8                ,3,  0.005,0.000,0.016,0.000,  0.009,    89239683200
+Generic sum: int                 ,3,  0.000,0.000,0.000,0.000,  0.000,    89239683200
+Generic sum: int without template,3,  0.047,0.047,0.047,0.047,  0.000,    89239683200
+Matrix multiply: <double>[n*n]   ,3,  0.317,0.312,0.328,0.312,  0.009,-95583583333300
+Matrix multiply: <float>[n*n]    ,3,  0.105,0.110,0.110,0.094,  0.009,-95583574425600
+Matrix multiply: <int>[n*n]      ,3,  0.109,0.109,0.109,0.109,  0.000,      913839180
+Matrix multiply: double[n*n]     ,3,  0.370,0.391,0.391,0.328,  0.036,     -95.583583
+Polynomials                      ,3,  2.844,2.828,2.875,2.828,  0.027,21677722.000000
+Simple arithmetic: double        ,3,  1.401,1.375,1.422,1.375,  0.024,               
+Simple arithmetic: float         ,3,  0.302,0.297,0.312,0.297,  0.009,               
+Simple arithmetic: FPI8          ,3,  0.188,0.187,0.188,0.187,  0.001,               
+Simple arithmetic: FPL16         ,3,  0.828,0.828,0.828,0.828,  0.000,               
+Simple arithmetic: Int           ,3,  0.156,0.157,0.157,0.156,  0.001,               
+Simple arithmetic: Int64         ,3,  0.114,0.109,0.125,0.109,  0.009,               
+Square root: double              ,3,  0.042,0.031,0.047,0.031,  0.009,               
+Square root: FPL16               ,3,  0.594,0.594,0.610,0.578,  0.016,               
+Square root: uint32              ,3,  0.177,0.188,0.188,0.171,  0.010,               
+Square root: uint64              ,3,  0.182,0.187,0.188,0.171,  0.010,               
+Sudoku                           ,3,  1.214,1.219,1.219,1.203,  0.009,20x100 puzzles 
