@@ -2,6 +2,8 @@
 //
 
 #include "stdafx.h"
+#include "MatrixMultiplication.h"
+#include "Polynomial.h"
 
 using namespace std;
 
@@ -66,23 +68,21 @@ void _tmain()
 	cout << "C++" << endl;
 	cout << "Generating buffer..." << endl;
 
-	auto a = GenerateBuffer();
-	auto b = GenerateBuffer();
-	auto c = GenerateBuffer();
-
 	auto timer = SimpleTimer{};
 	
 	cout << "Starting..." << endl;
 
 	timer.Reset();
 
-	for (int i = 0; i < 24; i++)
-	{
-		//ProcessBuffer(memory);
-		ProcessBuffer2(a.data(), b.data(), c.data(), a.size());
-	}
+	MatrixMultiplication().Test();
 
-	cout << "Completed in: " << timer.Millisec() / 1000.0 << endl;
+	cout << "Matrix Multiplication Completed in: " << timer.Millisec() / 1000.0 << endl;
+
+	timer.Reset();
+
+	Polynomial().Test();
+
+	cout << "Polynomial Completed in: " << timer.Millisec() / 1000.0 << endl;
 }
 
 
