@@ -15,7 +15,21 @@ vector<unique_ptr<Particle>> GenerateParticles()
 	{
 		string name = "This is a particle number ";
 		name += i;
-		vec.push_back(make_unique<Particle>(i, name, 0, (float)rand(), (float)rand()));
+		vec.push_back(make_unique<Particle>(i, name, 0, (float) rand(), (float) rand()));
+	}
+
+	return vec;
+}
+
+vector<Particle> GenerateParticleVector()
+{
+	vector<Particle> vec;
+
+	for (int i = 0; i < NumberOfParticles; i++)
+	{
+		string name = "This is a particle number ";
+		name += i;
+		vec.push_back(Particle(i, name, 0, (float) rand(), (float) rand()));
 	}
 
 	return vec;
@@ -47,41 +61,9 @@ void ProcessParticleFrame(vector<unique_ptr<Particle>> & particles)
 	}
 }
 
-void ParticlesTest::Test()
-{
-	auto particles = GenerateParticles();
-
-	for (int iter = 0; iter < NumberOfIterations; iter++)
-		ProcessParticleFrame(particles);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void ProcessParticleFrame2(vector<unique_ptr<Particle>> & particles)
-{
+void ProcessParticleVectorFrame(vector<Particle> & particles)
+{	
 	auto count = particles.size();
-
-	auto xs = unique_ptr<float>(new float[count]);
-	auto ys = unique_ptr<float>(new float[count]);
-
-	for (int i = 0; i < count; i++)
-	{
-		xs.get()[i] = particles[i]->vector().x;
-		ys.get()[i] = particles[i]->vector().y;
-	}
 
 	for (int i = 0; i < count; i++)
 	{
@@ -89,8 +71,8 @@ void ProcessParticleFrame2(vector<unique_ptr<Particle>> & particles)
 
 		for (int j = 0; j < count; j++)
 		{
-			float dX = xs.get()[i] - xs.get()[j];
-			float dY = ys.get()[i] - ys.get()[j];
+			float dX = particles[i].vector().x - particles[j].vector().x;
+			float dY = particles[i].vector().y - particles[j].vector().y;
 
 			float magnitude = sqrtf(dX*dX + dY*dY);
 
@@ -100,13 +82,59 @@ void ProcessParticleFrame2(vector<unique_ptr<Particle>> & particles)
 			effectY += dX * factor;
 		}
 
-		xs.get()[i] += effectX;
-		ys.get()[i] += effectY;
+		particles[i].vector().x += effectX;
+		particles[i].vector().y += effectY;
+	}
+}
+
+void ProcessParticleFrame2(vector<Particle> & particles)
+{
+	auto count = particles.size();
+
+	auto xs = unique_ptr<float>(new float[count]);
+	auto ys = unique_ptr<float>(new float[count]);
+
+	auto arrX = xs.get();
+	auto arrY = ys.get();
+
+	for (int i = 0; i < count; i++)
+	{
+		arrX[i] = particles[i].vector().x;
+		arrY[i] = particles[i].vector().y;
 	}
 
 	for (int i = 0; i < count; i++)
 	{
-		particles[i]->vector().x = xs.get()[i];
-		particles[i]->vector().y = ys.get()[i];
+		float effectX = 0, effectY = 0;
+
+		for (int j = 0; j < count; j++)
+		{
+			float dX = arrX[i] - arrX[j];
+			float dY = arrY[i] - arrY[j];
+
+			float magnitude = sqrtf(dX*dX + dY*dY);
+
+			float factor = 6.672e-11f / (magnitude * magnitude * magnitude);
+
+			effectX += dX * factor;
+			effectY += dX * factor;
+		}
+
+		arrX[i] += effectX;
+		arrY[i] += effectY;
 	}
+
+	for (int i = 0; i < count; i++)
+	{
+		particles[i].vector().x = arrX[i];
+		particles[i].vector().y = arrY[i];
+	}
+}
+
+void ParticlesTest::Test()
+{
+	auto particles = GenerateParticles();
+
+	for (int iter = 0; iter < NumberOfIterations; iter++)
+		ProcessParticleFrame(particles);
 }
