@@ -11,53 +11,30 @@ namespace CSharpLoops
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("C#:");
-            Console.WriteLine("Generating buffer...");
-            var memory = GenerateBuffer();
+            Console.WriteLine("C# Tests");
 
             var stopwatch = new Stopwatch();
 
-            Console.WriteLine("Starting...");
+            Console.WriteLine("Starting Matrix Multiplication...");
 
             stopwatch.Start();
 
-            for (int i = 0; i < 10; i++)
-            {
-                ProcessBuffer(memory);
-            }
+            MatrixMultiplication.Test();
 
             stopwatch.Stop();
 
-            Console.WriteLine("Completed in: {0}", stopwatch.Elapsed);
+            Console.WriteLine("Matrix Multiplication Completed in: {0}", stopwatch.ElapsedMilliseconds / 1000.0);
+
+            Console.WriteLine("Starting Polynomial...");
+
+            stopwatch.Restart();
+
+            Polynomial.Test();
+
+            stopwatch.Stop();
+
+            Console.WriteLine("Polynomial Completed in: {0}", stopwatch.ElapsedMilliseconds / 1000.0);
+
         }
-
-        static byte[] GenerateBuffer()
-        {
-            var size = 1024 * 100000;
-
-            Console.WriteLine("Buffer size: {0}", size);
-
-            var buffer = new byte[size];
-
-            for (int i = 0; i < buffer.Length; i++)
-                buffer[i] = (byte)(i % byte.MaxValue);
-
-            return buffer;
-        }
-
-        static void ProcessBuffer(byte[] memory)
-        {
-            for(int i=0; i<(memory.Length - 8); i+=4)
-            {
-                var rr = memory[i + 0] * memory[i + 4];
-                var rg = memory[i + 1] * memory[i + 5];
-                var rb = memory[i + 2] * memory[i + 6];
-
-                memory[i + 0] = (byte) (rr * 0.393 + rg * 0.769 + rb * 0.189);
-                memory[i + 1] = (byte) (rr * 0.349 + rg * 0.686 + rb * 0.168);
-                memory[i + 2] = (byte) (rr * 0.272 + rg * 0.534 + rb * 0.131);
-            }
-        }
-
     }
 }

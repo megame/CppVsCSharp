@@ -65,18 +65,19 @@ void ProcessBuffer2(int * const a, int const * const b, int const * const c, con
 
 void _tmain()
 {
-	cout << "C++" << endl;
-	cout << "Generating buffer..." << endl;
+	cout << "C++ Tests" << endl;
 
 	auto timer = SimpleTimer{};
 	
-	cout << "Starting..." << endl;
+	cout << "Starting Matrix Multiplication..." << endl;
 
 	timer.Reset();
 
 	MatrixMultiplication().Test();
 
 	cout << "Matrix Multiplication Completed in: " << timer.Millisec() / 1000.0 << endl;
+
+	cout << "Starting Polynomial..." << endl;
 
 	timer.Reset();
 
