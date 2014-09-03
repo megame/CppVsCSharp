@@ -87,7 +87,7 @@ void ProcessParticleVectorFrame(vector<Particle> & particles)
 	}
 }
 
-void ProcessParticleFrame2(vector<Particle> & particles)
+void ProcessParticleVectorFrame2(vector<Particle> & particles)
 {
 	auto count = particles.size();
 
