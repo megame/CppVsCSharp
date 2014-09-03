@@ -8,7 +8,7 @@ namespace CSharpLoops
 {
     class MatrixMultiplication
     {
-        const int MatrixSize = 1000;
+        const int MatrixSize = 1024;
 
         public static float[,] GenerateMatrixV1(int n)
         {
