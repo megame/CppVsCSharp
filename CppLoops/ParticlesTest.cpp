@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "ParticlesTest.h"
 #include "Particle.h"
 

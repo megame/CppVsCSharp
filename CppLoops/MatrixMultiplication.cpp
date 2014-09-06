@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "MatrixMultiplication.h"
 #include "helpers.h"
 
@@ -11,7 +11,7 @@ static unique_ptr<float> GenerateMatrix(int n)
 	auto ua = unique_ptr<float>(new float[n * n]);
 	auto a = ua.get();
 
-	float tmp = 1.0 / n / n;
+	float tmp = 1.0f / n / n;
 	for (int i = 0; i < n; ++i) 
 	{
 		float* row = &a[i * n];
@@ -37,7 +37,8 @@ static unique_ptr<float> MultiplyMatrix(float* a, float* b, int aRows, int aCols
 		for (int j = 0; j < bCols; ++j)
 			c[j*bRows + i] = b[i*bCols + j];
 
-	for (int i = 0; i < aRows; ++i) {
+	for (int i = 0; i < aRows; ++i) 
+	{
 		float* a_i = &a[i*aCols];
 		for (int j = 0; j < bCols; ++j)
 		{
