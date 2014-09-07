@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include "pch.h"
+#include "ViewModelLocator.h"
 #include "HubPage.g.h"
 
 namespace ModernCppHubApp

@@ -27,3 +27,6 @@
 #include <map>
 #include <algorithm>
 #include <memory>
+#include <strstream>
+
+#include <ppl.h>

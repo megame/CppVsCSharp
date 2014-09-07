@@ -24,6 +24,23 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)..\..\CppLoops\helpers.cpp">
       <Filter>CppLoops</Filter>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BindableBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ViewModelBase.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)ViewModelLocator.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)HubPageViewModel.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)DebugLoggingExceptionPolicy.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)MatrixMultiplicationViewModel.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)DelegateCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cpp">
@@ -62,6 +79,27 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\CppLoops\helpers.h">
       <Filter>CppLoops</Filter>
     </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BindableBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ViewModelBase.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)PageType.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ViewModelLocator.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)HubPageViewModel.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)ExceptionPolicy.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)DebugLoggingExceptionPolicy.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)MatrixMultiplicationViewModel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)DelegateCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.h">
@@ -119,6 +157,9 @@
     </Filter>
     <Filter Include="CppLoops">
       <UniqueIdentifier>{0ee433b9-7588-44f5-8dce-0e9617edaf95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ViewModels">
+      <UniqueIdentifier>{55814897-7e94-41ee-b4af-77af59c5b30f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

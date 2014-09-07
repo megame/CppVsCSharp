@@ -25,6 +25,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)App.xaml.cpp">
       <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BindableBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)DebugLoggingExceptionPolicy.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)DelegateCommand.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)HubPageViewModel.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)MatrixMultiplicationViewModel.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ViewModelBase.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)ViewModelLocator.cpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\CppLoops\helpers.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\CppLoops\MatrixMultiplication.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\CppLoops\Particle.h" />
@@ -37,6 +44,13 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BindableBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)DebugLoggingExceptionPolicy.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)DelegateCommand.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ExceptionPolicy.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)HubPageViewModel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)MatrixMultiplicationViewModel.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)PageType.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClCompile Include="$(MSBuildThisFileDirectory)DataModel\SampleDataSource.cpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)DataModel\SampleDataSource.h" />
@@ -46,6 +60,8 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\RelayCommand.h" />
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.cpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\SuspensionManager.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ViewModelBase.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)ViewModelLocator.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectCapability Include="SourceItemsFromImports" />
