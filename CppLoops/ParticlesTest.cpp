@@ -39,11 +39,11 @@ void ProcessParticleFrame(vector<unique_ptr<Particle>> & particles)
 {
 	auto count = particles.size();
 
-	for (int i = 0; i < count; i++)
+	for (decltype(count) i = 0; i < count; i++)
 	{
 		float effectX = 0, effectY = 0;
 
-		for (int j = 0; j < count; j++)
+		for (decltype(count) j = 0; j < count; j++)
 		{
 			float dX = particles[i]->vector().x - particles[j]->vector().x;
 			float dY = particles[i]->vector().y - particles[j]->vector().y;
@@ -65,11 +65,11 @@ void ProcessParticleVectorFrame(vector<Particle> & particles)
 {	
 	auto count = particles.size();
 
-	for (int i = 0; i < count; i++)
+	for (decltype(count) i = 0; i < count; i++)
 	{
 		float effectX = 0, effectY = 0;
 
-		for (int j = 0; j < count; j++)
+		for (decltype(count) j = 0; j < count; j++)
 		{
 			float dX = particles[i].vector().x - particles[j].vector().x;
 			float dY = particles[i].vector().y - particles[j].vector().y;
@@ -97,17 +97,17 @@ void ProcessParticleVectorFrame2(vector<Particle> & particles)
 	auto arrX = xs.get();
 	auto arrY = ys.get();
 
-	for (int i = 0; i < count; i++)
+	for (decltype(count) i = 0; i < count; i++)
 	{
 		arrX[i] = particles[i].vector().x;
 		arrY[i] = particles[i].vector().y;
 	}
 
-	for (int i = 0; i < count; i++)
+	for (decltype(count) i = 0; i < count; i++)
 	{
 		float effectX = 0, effectY = 0;
 
-		for (int j = 0; j < count; j++)
+		for (decltype(count) j = 0; j < count; j++)
 		{
 			float dX = arrX[i] - arrX[j];
 			float dY = arrY[i] - arrY[j];
@@ -124,7 +124,7 @@ void ProcessParticleVectorFrame2(vector<Particle> & particles)
 		arrY[i] += effectY;
 	}
 
-	for (int i = 0; i < count; i++)
+	for (decltype(count) i = 0; i < count; i++)
 	{
 		particles[i].vector().x = arrX[i];
 		particles[i].vector().y = arrY[i];

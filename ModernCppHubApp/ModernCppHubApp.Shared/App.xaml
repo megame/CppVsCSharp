@@ -5,5 +5,12 @@
     xmlns:local="using:ModernCppHubApp">
     <Application.Resources>
         <local:ViewModelLocator x:Key="ViewModelLocator" />
+        
+        <SolidColorBrush x:Key="Accent1Brush" Color="#FF0072C6"/>
+        <SolidColorBrush x:Key="Accent2Brush" Color="#FFDC3C00"/>
+        <SolidColorBrush x:Key="Accent3Brush" Color="#FF505050"/>
+        <SolidColorBrush x:Key="Accent4Brush" Color="#FFD2D2D2"/>
+        <SolidColorBrush x:Key="Accent5Brush" Color="#FF7FBA00"/>
+        <SolidColorBrush x:Key="Accent6Brush" Color="#FF007233"/>
     </Application.Resources>
 </Application>

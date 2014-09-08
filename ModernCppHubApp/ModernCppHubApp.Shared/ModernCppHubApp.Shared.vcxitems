@@ -25,11 +25,11 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)App.xaml.cpp">
       <DependentUpon>$(MSBuildThisFileDirectory)App.xaml</DependentUpon>
     </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)BenchmarkViewModel.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)BindableBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)DebugLoggingExceptionPolicy.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)DelegateCommand.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)HubPageViewModel.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)MatrixMultiplicationViewModel.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ViewModelBase.cpp" />
     <ClCompile Include="$(MSBuildThisFileDirectory)ViewModelLocator.cpp" />
     <ClInclude Include="$(MSBuildThisFileDirectory)..\..\CppLoops\helpers.h" />
@@ -44,12 +44,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClInclude Include="$(MSBuildThisFileDirectory)BenchmarkViewModel.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)BindableBase.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)DebugLoggingExceptionPolicy.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)DelegateCommand.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ExceptionPolicy.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)HubPageViewModel.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)MatrixMultiplicationViewModel.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)PageType.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
     <ClCompile Include="$(MSBuildThisFileDirectory)DataModel\SampleDataSource.cpp" />
@@ -67,6 +67,7 @@
     <ProjectCapability Include="SourceItemsFromImports" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="$(MSBuildThisFileDirectory)Assets\Background.png" />
     <Image Include="$(MSBuildThisFileDirectory)Assets\DarkGray.png" />
     <Image Include="$(MSBuildThisFileDirectory)Assets\LightGray.png" />
     <Image Include="$(MSBuildThisFileDirectory)Assets\MediumGray.png" />

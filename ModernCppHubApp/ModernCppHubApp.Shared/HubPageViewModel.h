@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ViewModelBase.h"
-#include "MatrixMultiplicationViewModel.h"
+#include "BenchmarkViewModel.h"
 
 namespace ModernCppHubApp
 {
@@ -14,7 +14,9 @@ namespace ModernCppHubApp
 		HubPageViewModel(shared_ptr<ExceptionPolicy> exceptionPolicy);
 
 	public:
-		property MatrixMultiplicationViewModel^ MatrixMultiplication;
+		property BenchmarkViewModel^ MatrixMultiplicationSection;
+		property BenchmarkViewModel^ PolynomialSection;
+		property BenchmarkViewModel^ ParticlesSection;
 	};
 
 }

@@ -11,27 +11,18 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <!-- Grid-appropriate 310 by 260 pixel item template as seen in section 4 -->
-        <DataTemplate x:Key="Standard310x260ItemTemplate">
-            <Grid Height="250" Width="310" Margin="5,10,5,10">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Border Background="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" Height="150">
-                    <Image Source="{Binding ImagePath}" Stretch="UniformToFill" AutomationProperties.Name="{Binding Title}"/>
-                </Border>
-                <StackPanel Grid.Row="1" Margin="0,10,0,0">
-                    <TextBlock Text="{Binding Title}" Style="{StaticResource TitleTextBlockStyle}" TextWrapping="NoWrap"/>
-                    <TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextBlockStyle}" MaxHeight="60" />
-                </StackPanel>
-            </Grid>
+        <DataTemplate x:Key="BenchmarkTemplate">
+            <StackPanel Width="500">
+                <ListView ItemsSource="{Binding Results}" />
+                <ProgressRing 
+                    Width="64" 
+                    Height="64"
+                    Foreground="{StaticResource Accent4Brush}"
+                    IsActive="{Binding IsRunning}"/>
+            </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
-    <!--
-    This grid acts as a root panel for the page.
-  -->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ChildrenTransitions>
             <TransitionCollection>
@@ -46,42 +37,47 @@
                         <ColumnDefinition Width="80"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
+                    <!--<Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
                         Margin="0,0,39,0" 
                         VerticalAlignment="Top"
                         Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
                         AutomationProperties.Name="Back"
                         AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
-                    <TextBlock x:Name="pageTitle" x:Uid="Header" Text="application name" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
+                        AutomationProperties.ItemType="Navigation Button"/>-->
+                    <TextBlock x:Name="pageTitle" x:Uid="Header" Text="modern c++" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
                 </Grid>
             </Hub.Header>
-            <HubSection Width="780" Margin="0,0,80,0">
+            <HubSection Width="750">
                 <HubSection.Background>
-                    <ImageBrush ImageSource="Assets/MediumGray.png" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="Assets/Background.png" 
+                                Stretch="UniformToFill" AlignmentX="Right" />
                 </HubSection.Background>
             </HubSection>
-            <HubSection Width="500" x:Uid="Section1Header" Header="Section 1" DataContext="{Binding MatrixMultiplication}">
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        
-                        <ListView ItemsSource="{Binding Results}" VerticalAlignment="Stretch"/>
-
-                        <Button x:Uid="MatrixMultiplicationRun" 
-                                Grid.Row="1"
-                                Command="{Binding RunCommand}"
-                                Content="run" />
-                        <ProgressBar Grid.Row="2"
-                                     IsIndeterminate="{Binding IsRunning}"/>
-                    </Grid>
-                </DataTemplate>
-            </HubSection>
+            <HubSection Width="500" 
+                        x:Uid="Section1Header" 
+                        Header="MatrixMultiplication" 
+                        IsEnabled="{Binding CanRun}"
+                        Background="{StaticResource Accent1Brush}"
+                        IsHeaderInteractive="True"
+                        DataContext="{Binding MatrixMultiplicationSection}"
+                        ContentTemplate="{StaticResource BenchmarkTemplate}"/>
+            <HubSection Width="500" 
+                        x:Uid="Section2Header" 
+                        Header="Polynomial" 
+                        Background="{StaticResource Accent2Brush}"
+                        IsHeaderInteractive="True"
+                        IsEnabled="{Binding CanRun}"
+                        DataContext="{Binding PolynomialSection}"
+                        ContentTemplate="{StaticResource BenchmarkTemplate}"/>
+            <HubSection Width="500" 
+                        x:Uid="Section3Header" 
+                        Background="{StaticResource Accent3Brush}"
+                        Header="Particles" 
+                        IsHeaderInteractive="True"
+                        IsEnabled="{Binding CanRun}"
+                        DataContext="{Binding ParticlesSection}"
+                        ContentTemplate="{StaticResource BenchmarkTemplate}"/>
         </Hub>
     </Grid>
 </Page>

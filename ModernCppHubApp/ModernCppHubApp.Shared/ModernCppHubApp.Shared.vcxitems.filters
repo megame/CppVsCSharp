@@ -39,8 +39,12 @@
     <ClCompile Include="$(MSBuildThisFileDirectory)DebugLoggingExceptionPolicy.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="$(MSBuildThisFileDirectory)MatrixMultiplicationViewModel.cpp" />
-    <ClCompile Include="$(MSBuildThisFileDirectory)DelegateCommand.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)BenchmarkViewModel.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)DelegateCommand.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.cpp">
@@ -85,7 +89,6 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)ViewModelBase.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)PageType.h" />
     <ClInclude Include="$(MSBuildThisFileDirectory)ViewModelLocator.h">
       <Filter>ViewModels</Filter>
     </ClInclude>
@@ -98,8 +101,15 @@
     <ClInclude Include="$(MSBuildThisFileDirectory)DebugLoggingExceptionPolicy.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="$(MSBuildThisFileDirectory)MatrixMultiplicationViewModel.h" />
-    <ClInclude Include="$(MSBuildThisFileDirectory)DelegateCommand.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)BenchmarkViewModel.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)DelegateCommand.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)PageType.h">
+      <Filter>Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="$(MSBuildThisFileDirectory)Common\NavigationHelper.h">
@@ -125,6 +135,9 @@
       <Filter>Assets</Filter>
     </Image>
     <Image Include="$(MSBuildThisFileDirectory)Assets\MediumGray.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="$(MSBuildThisFileDirectory)Assets\Background.png">
       <Filter>Assets</Filter>
     </Image>
   </ItemGroup>
