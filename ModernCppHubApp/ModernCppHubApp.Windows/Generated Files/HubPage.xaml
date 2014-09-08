@@ -21,6 +21,12 @@
                     IsActive="{Binding IsRunning}"/>
             </StackPanel>
         </DataTemplate>
+        <Style x:Name="BenchmarkHubStyle" TargetType="HubSection">
+            <Setter Property="Width" Value="500" />
+            <Setter Property="IsHeaderInteractive" Value="{Binding CanRun}"/>
+            <Setter Property="IsEnabled" Value="{Binding CanRun}"/>
+            <Setter Property="ContentTemplate" Value="{StaticResource BenchmarkTemplate}"/>
+        </Style>
     </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -31,22 +37,15 @@
         </Grid.ChildrenTransitions>
         <Hub x:ConnectionId='1'                                            >
             <Hub.Header>
-                <!-- Back button and page title -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="80"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <!--<Button  x:Name="backButton" Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        Margin="0,0,39,0" 
-                        VerticalAlignment="Top"
-                        Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>-->
-                    <TextBlock x:Name="pageTitle" x:Uid="Header" Text="modern c++" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
-                        VerticalAlignment="Top" IsHitTestVisible="false" TextWrapping="NoWrap" />
-                </Grid>
+                <!-- page title -->
+                <TextBlock 
+                        x:Name="pageTitle" 
+                        x:Uid="Header" 
+                        Text="modern c++" 
+                        Style="{StaticResource HeaderTextBlockStyle}" 
+                        VerticalAlignment="Top" 
+                        IsHitTestVisible="false" 
+                        TextWrapping="NoWrap"/>
             </Hub.Header>
             <HubSection Width="750">
                 <HubSection.Background>
@@ -54,30 +53,19 @@
                                 Stretch="UniformToFill" AlignmentX="Right" />
                 </HubSection.Background>
             </HubSection>
-            <HubSection Width="500" 
-                        x:Uid="Section1Header" 
-                        Header="MatrixMultiplication" 
-                        IsEnabled="{Binding CanRun}"
+            <HubSection Header="MatrixMultiplication" 
                         Background="{StaticResource Accent1Brush}"
-                        IsHeaderInteractive="True"
                         DataContext="{Binding MatrixMultiplicationSection}"
-                        ContentTemplate="{StaticResource BenchmarkTemplate}"/>
-            <HubSection Width="500" 
-                        x:Uid="Section2Header" 
-                        Header="Polynomial" 
+                        ContentTemplate="{StaticResource BenchmarkTemplate}"
+                        Style="{StaticResource BenchmarkHubStyle}"/>
+            <HubSection Header="Polynomial" 
                         Background="{StaticResource Accent2Brush}"
-                        IsHeaderInteractive="True"
-                        IsEnabled="{Binding CanRun}"
                         DataContext="{Binding PolynomialSection}"
-                        ContentTemplate="{StaticResource BenchmarkTemplate}"/>
-            <HubSection Width="500" 
-                        x:Uid="Section3Header" 
+                        Style="{StaticResource BenchmarkHubStyle}"/>
+            <HubSection Header="Particles" 
                         Background="{StaticResource Accent3Brush}"
-                        Header="Particles" 
-                        IsHeaderInteractive="True"
-                        IsEnabled="{Binding CanRun}"
                         DataContext="{Binding ParticlesSection}"
-                        ContentTemplate="{StaticResource BenchmarkTemplate}"/>
+                        Style="{StaticResource BenchmarkHubStyle}"/>
         </Hub>
     </Grid>
 </Page>
