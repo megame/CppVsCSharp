@@ -5,8 +5,6 @@
 
 #include "pch.h"
 #include "HubPage.xaml.h"
-#include "ItemPage.xaml.h"
-#include "SectionPage.xaml.h"
 #include "ViewModelLocator.h"
 
 using namespace ModernCppHubApp;
@@ -40,20 +38,15 @@ HubPage::HubPage()
 
 	DisplayInformation::AutoRotationPreferences = DisplayOrientations::Portrait;
 	NavigationCacheMode = Windows::UI::Xaml::Navigation::NavigationCacheMode::Required;
-
-	_resourceLoader = ResourceLoader::GetForCurrentView(L"Resources");
 }
 
-/// <summary>
-/// Invoked when an item within a section is clicked.
-/// </summary>
-void HubPage::GroupSection_ItemClick(Object^ sender, ItemClickEventArgs^ e)
+void ModernCppHubApp::HubPage::Hub_SectionHeaderClick(Platform::Object^ sender, Windows::UI::Xaml::Controls::HubSectionHeaderClickEventArgs^ e)
 {
 	(void) sender;	// Unused parameter
 
-	auto groupId = safe_cast<SampleDataGroup^>(e->ClickedItem)->UniqueId;
-	if (!Frame->Navigate(SectionPage::typeid, groupId))
-	{
-		throw ref new FailureException(_resourceLoader->GetString(L"NavigationFailedExceptionMessage"));
-	}
+	auto vm = safe_cast<BenchmarkViewModel^>(e->Section->DataContext);
+	auto cmd = vm->RunCommand;
+
+	if (cmd->CanExecute(nullptr))
+		cmd->Execute(nullptr);
 }

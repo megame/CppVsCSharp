@@ -23,7 +23,7 @@
         </DataTemplate>
         <Style x:Name="BenchmarkHubStyle" TargetType="HubSection">
             <Setter Property="Width" Value="500" />
-            <Setter Property="IsHeaderInteractive" Value="{Binding CanRun}"/>
+            <Setter Property="IsHeaderInteractive" Value="True"/>
             <Setter Property="IsEnabled" Value="{Binding CanRun}"/>
             <Setter Property="ContentTemplate" Value="{StaticResource BenchmarkTemplate}"/>
         </Style>

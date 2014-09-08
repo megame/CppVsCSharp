@@ -160,33 +160,15 @@
     <Page Include="HubPage.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ItemPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SectionPage.xaml">
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HubPage.xaml.h">
       <DependentUpon>HubPage.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="ItemPage.xaml.h">
-      <DependentUpon>ItemPage.xaml</DependentUpon>
-    </ClInclude>
-    <ClInclude Include="SectionPage.xaml.h">
-      <DependentUpon>SectionPage.xaml</DependentUpon>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HubPage.xaml.cpp">
       <DependentUpon>HubPage.xaml</DependentUpon>
-    </ClCompile>
-    <ClCompile Include="ItemPage.xaml.cpp">
-      <DependentUpon>ItemPage.xaml</DependentUpon>
-    </ClCompile>
-    <ClCompile Include="SectionPage.xaml.cpp">
-      <DependentUpon>SectionPage.xaml</DependentUpon>
     </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

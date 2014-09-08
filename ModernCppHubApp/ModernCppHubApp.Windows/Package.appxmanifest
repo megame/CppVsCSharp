@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="ModernCppHubApp_Windows.App">
-      <m2:VisualElements DisplayName="ModernCppHubApp.Windows" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="ModernCppHubApp.Windows" ForegroundText="light" BackgroundColor="#002050">
+      <m2:VisualElements DisplayName="Modern C++" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="ModernCppHubApp.Windows" ForegroundText="light" BackgroundColor="#002050">
         <m2:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#002050" />
       </m2:VisualElements>
     </Application>

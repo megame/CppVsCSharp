@@ -5,8 +5,6 @@
 
 #include "pch.h"
 #include "HubPage.xaml.h"
-#include "SectionPage.xaml.h"
-#include "ItemPage.xaml.h"
 
 using namespace ModernCppHubApp;
 using namespace ModernCppHubApp::Common;

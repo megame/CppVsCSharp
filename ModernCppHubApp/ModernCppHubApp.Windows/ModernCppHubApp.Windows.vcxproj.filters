@@ -37,16 +37,10 @@
     <ClInclude Include="HubPage.xaml.h" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="ItemPage.xaml" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="ItemPage.xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ItemPage.xaml.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="SectionPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SectionPage.xaml.cpp" />
