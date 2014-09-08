@@ -21,20 +21,6 @@ vector<unique_ptr<Particle>> GenerateParticles()
 	return vec;
 }
 
-vector<Particle> GenerateParticleVector()
-{
-	vector<Particle> vec;
-
-	for (int i = 0; i < NumberOfParticles; i++)
-	{
-		string name = "This is a particle number ";
-		name += i;
-		vec.push_back(Particle(i, name, 0, (float) rand(), (float) rand()));
-	}
-
-	return vec;
-}
-
 void ProcessParticleFrame(vector<unique_ptr<Particle>> & particles)
 {
 	auto count = particles.size();
@@ -61,8 +47,36 @@ void ProcessParticleFrame(vector<unique_ptr<Particle>> & particles)
 	}
 }
 
+void ParticlesTest::Test()
+{
+	auto particles = GenerateParticles();
+
+	for (int iter = 0; iter < NumberOfIterations; iter++)
+		ProcessParticleFrame(particles);
+}
+
+
+
+
+
+
+
+vector<Particle> GenerateParticleVector()
+{
+	vector<Particle> vec;
+
+	for (int i = 0; i < NumberOfParticles; i++)
+	{
+		string name = "This is a particle number ";
+		name += i;
+		vec.push_back(Particle(i, name, 0, (float) rand(), (float) rand()));
+	}
+
+	return vec;
+}
+
 void ProcessParticleVectorFrame(vector<Particle> & particles)
-{	
+{
 	auto count = particles.size();
 
 	for (decltype(count) i = 0; i < count; i++)
@@ -86,6 +100,27 @@ void ProcessParticleVectorFrame(vector<Particle> & particles)
 		particles[i].vector().y += effectY;
 	}
 }
+
+void ParticlesTest::VectorTest()
+{
+	auto particles = GenerateParticleVector();
+
+	for (int iter = 0; iter < NumberOfIterations; iter++)
+		ProcessParticleVectorFrame(particles);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 void ProcessParticleVectorFrame2(vector<Particle> & particles)
 {
@@ -131,10 +166,10 @@ void ProcessParticleVectorFrame2(vector<Particle> & particles)
 	}
 }
 
-void ParticlesTest::Test()
+void ParticlesTest::VectorTest2()
 {
-	auto particles = GenerateParticles();
+	auto particles = GenerateParticleVector();
 
 	for (int iter = 0; iter < NumberOfIterations; iter++)
-		ProcessParticleFrame(particles);
+		ProcessParticleVectorFrame2(particles);
 }
